@@ -1,0 +1,52 @@
+Write down how you have broken down development, i.e., briefly describe each of the development steps
+The process of the whole process is 
+1)the referee get parameter bestOf from Top and initial counter of round to 0
+2)the referee give message to players for them to make decision about rock,paper,scissors
+3)the players triggered by this message, generate random number representing rock,paper,scissors and send it back to the referee
+4)the referee receive decisions in sequence from the players and store them in local variables separately(choice0&choice1)
+5)the referee decide the result of this round(win,lose,tie) and update local variables keeping track of how many rounds each player has won(wins0&wins1)
+6)the referee judge whether the game can stop by compare the difference of wins with how many rounds left.
+ if it has become impossible for one player to lose, end the game; otherwise,  go to step 7)
+7)the referee judge whether the game has reached the maximum rounds set by bestOf, if true, end the game; otherwise go back to step 2)
+The development can be broken down into referee,player and connector parts.
+The referee part is initial->loop until reach the finishing requirement(send message to players, get messages from players, compare and store the result)
+The player part is initial and only one transition around one state triggered by the message from referee, in which sending rock,paper,scissors to the referee
+The connector part only involves one connector with inEvent(referee asks players to send decision) and outEvent(players send rock,paper,scissors to referee)
+At first I used two distinct player capsules to communicate with referee capsule. After I finished the whole logic of rock,paper,scissors
+game, I changed the program into using a single player capsule with municipality of 2.
+
+how your code is to be invoked (for testing purposes)
+command line argument:  -UARGS [bestOf]
+e.g. -UARGS 7
+
+how your system would have to be changed to support three players instead of two. In this setting
+1)modify the municipality of Player capsule and port p in Referee capsule from 2 into 3
+2)use 3 pair of variables to store the decision of each player and how many rounds has the player won
+3)the referee receives decisions of rock,paper,scissors in response to 3 messages from 3 players
+4)change the logic of deciding who is the winner each round
+if((choice0==2&&choice1==1&&choice2==1)||(choice0==1&&choice1==0&&choice2==0||(choice0==0&&choice1==2&&choice2==2)){
+	wins0++;
+	log.log("[Referee] round %d: player 0 wins",i);
+}
+else if((choice1==2&&choice0==1&&choice2==1)||(choice1==1&&choice0==0&&choice2==0)||(choice1==0&&choice0==2&&choice2==2)){
+	wins1++;
+	log.log("[Referee] round %d: player 1 wins",i);
+}
+else if((choice2==2&&choice0==1&&choice1==1)||(choice2==1&&choice0==0&&choice1==0)||(choice2==0&&choice0==2&&choice1==2)){
+	wins2++;
+	log.log("[Referee] round %d: player 2 wins",i);
+}
+else{
+	log.log("[Referee] round %d: player 0,1,2 tie",i);
+}
+5)change the logic of deciding whether the game can stop now
+return((wins0-wins1>bestOf-i&&wins0-wins2>bestOf-i)||(wins1-wins0>bestOf-i&&wins1-wins2>bestOf-i)||(wins2-wins0>bestOf-i&&wins2-wins1>bestOf-i));
+6)change the logic of deciding who is the final winner
+if(wins0>wins1&&win0>win2)
+	log.log("[Referee] Final result: player 0 wins");
+else if(wins1>wins0&win1>win2)
+	log.log("[Referee] Final result: player 1 wins");
+else if(wins2>wins0&win2>win1)
+	log.log("[Referee] Final result: player 2 wins");
+else
+	log.log("[Referee] Final result: player 0,1,2 tie");

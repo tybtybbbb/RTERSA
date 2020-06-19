@@ -1,0 +1,13 @@
+/*
+ *   Converted from: platform:/resource/PingPong1/Default%20Transform%20Configuration.tc
+ */
+
+let tc = TCF.define(TCF.CPP_TRANSFORM);
+tc.sources = [
+    'platform:/resource/RockPaperScissors/RockPaperScissors.emx#_F0unIB4SEeqk9ZMGjXPRZw'
+];
+tc.createTargetProject = true;
+tc.targetProject = '/RockPaperScissors_target';
+tc.compilationMakeCommand = 'make';
+tc.targetConfiguration = 'LinuxT.x64-gcc-4.x';
+tc.topCapsule = 'platform:/resource/RockPaperScissors/RockPaperScissors.emx#_kxR-4B4SEeqk9ZMGjXPRZw';

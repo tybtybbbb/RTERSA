@@ -1,0 +1,15 @@
+/*
+ *   Converted from: platform:/resource/ParcelRouter_Complete/Default%20Transform%20Configuration.tc
+ */
+
+let tc = TCF.define(TCF.CPP_TRANSFORM);
+tc.sources = [
+    'platform:/resource/Observer/Observer.emx#_aj_-gTM6EeqgGtYd8gKs6g',
+    'platform:/resource/DiningPhilosophers2/DiningPhilosophers.emx#_jIe_YEXCEeqr8ojTGGr_QA'
+];
+tc.createTargetProject = true;
+tc.targetProject = '/DiningPhilosopher2_target';
+tc.compilationMakeCommand = 'make';
+tc.targetConfiguration = 'LinuxT.x64-gcc-4.x';
+tc.topCapsule = 'platform:/resource/DiningPhilosophers2/DiningPhilosophers.emx#_3-lqkEXNEeqr8ojTGGr_QA';
+tc.executableName = 'Parcelrouter$(EXEC_EXT)';

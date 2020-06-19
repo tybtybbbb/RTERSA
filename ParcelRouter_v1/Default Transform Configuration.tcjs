@@ -1,0 +1,15 @@
+/*
+ *   Converted from: platform:/resource/ParcelRouter_Complete/Default%20Transform%20Configuration.tc
+ */
+
+let tc = TCF.define(TCF.CPP_TRANSFORM);
+tc.sources = [
+    'platform:/resource/Observer/Observer.emx#_aj_-gTM6EeqgGtYd8gKs6g',
+    'platform:/resource/ParcelRouter_v0/ParcelRouter_incompleteAndMisrout.emx#_jIe_YEXCEeqr8ojTGGr_QA'
+];
+tc.createTargetProject = true;
+tc.targetProject = '/ParcelRouter_v0_target';
+tc.compilationMakeCommand = 'make';
+tc.targetConfiguration = 'LinuxT.x64-gcc-4.x';
+tc.topCapsule = 'platform:/resource/ParcelRouter_v0/ParcelRouter_incompleteAndMisrout.emx#_ChqPcEXIEeqr8ojTGGr_QA';
+tc.executableName = 'Parcelrouter$(EXEC_EXT)';

@@ -1,0 +1,15 @@
+/*
+ *   Converted from: platform:/resource/Safe_v0_StructureOnly/Default%20Transform%20Configuration.tc
+ */
+
+let tc = TCF.define(TCF.CPP_TRANSFORM);
+tc.sources = [
+    'platform:/resource/Safe_v0/Safe_v0_Model.emx#_2NlNoDCdEeqvQL5UnnyE3w'
+];
+tc.createTargetProject = true;
+tc.targetProject = '/Safe_v0_target';
+tc.compilationMakeCommand = 'make';
+tc.compilationMakeType = MakeType.Default;
+tc.targetConfiguration = 'LinuxT.x64-gcc-4.x';
+tc.topCapsule = 'platform:/resource/Safe_v0/Safe_v0_Model.emx#_DwKo4DCeEeqvQL5UnnyE3w';
+tc.executableName = 'safe$(EXEC_EXT)';

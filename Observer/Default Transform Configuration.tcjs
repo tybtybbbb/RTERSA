@@ -1,0 +1,11 @@
+/*
+ *   Converted from: platform:/resource/Observer/Default%20Transform%20Configuration.tc
+ */
+
+let tc = TCF.define(TCF.CPP_TRANSFORM);
+tc.sources = [
+    'platform:/resource/Observer/Observer.emx#_aj_-gTM6EeqgGtYd8gKs6g'
+];
+tc.targetProject = '/Observer_CDT';
+tc.targetConfiguration = 'LinuxT.x64-gcc-4.x';
+tc.topCapsule = 'platform:/resource/Observer/Observer.emx#_dWsIkDM6EeqgGtYd8gKs6g';
